@@ -20,6 +20,8 @@ class ComandCentralFragment : Fragment(R.layout.fragment_comand_central) {
         super.onViewCreated(view, savedInstanceState)
         bbinding = FragmentComandCentralBinding.bind(view)
 
+        spinner()
+
 
     }
 
@@ -56,7 +58,8 @@ class ComandCentralFragment : Fragment(R.layout.fragment_comand_central) {
     fun sendCommand (position : Int) {
 
         when (position){
-            1 -> ""
+            1 -> {
+            }
             2 -> ""
             3 -> ""
 
