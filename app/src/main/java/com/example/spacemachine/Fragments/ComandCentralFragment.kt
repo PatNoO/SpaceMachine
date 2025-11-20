@@ -1,60 +1,71 @@
 package com.example.spacemachine.Fragments
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import com.example.spacemachine.R
+import com.example.spacemachine.databinding.FragmentComandCentralBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class ComandCentralFragment : Fragment(R.layout.fragment_comand_central) {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ComandCentralFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class ComandCentralFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var bbinding : FragmentComandCentralBinding? = null
+    private val binding get() = bbinding!!
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        bbinding = FragmentComandCentralBinding.bind(view)
+
+
+    }
+
+    fun spinner () {
+
+        val categories = arrayOf(
+            "Drive System",
+            "Vital Habitat System",
+            "Energy Core System"
+        )
+        val spinnerAdapter = ArrayAdapter(requireContext(),android.R.layout.simple_spinner_item,categories)
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
+        binding.spinnerCommandFcc.adapter = spinnerAdapter
+
+        binding.spinnerCommandFcc.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+
+                sendCommand(position)
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_comand_central, container, false)
+    fun sendCommand (position : Int) {
+
+        when (position){
+            1 -> ""
+            2 -> ""
+            3 -> ""
+
+        }
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ComandCentralFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ComandCentralFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onDestroy() {
+        super.onDestroy()
+        bbinding = null
     }
+
 }
