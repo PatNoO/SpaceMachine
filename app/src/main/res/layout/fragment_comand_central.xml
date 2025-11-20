@@ -10,11 +10,12 @@
         android:id="@+id/tv_head_command_ccf"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="64dp"
         android:fontFamily="@font/afacad_bold"
         android:text="Command Central"
         android:textSize="32dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -32,7 +33,7 @@
         android:id="@+id/btn_command_ccf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="292dp"
+        android:layout_marginTop="28dp"
         android:backgroundTint="#C9E01304"
         android:text="Send Command"
         app:layout_constraintEnd_toEndOf="parent"
