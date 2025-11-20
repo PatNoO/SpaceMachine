@@ -35,7 +35,7 @@ class EneryCoreFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_enery_core, container, false)
+        return inflater.inflate(R.layout.fragment_energy_core, container, false)
     }
 
     companion object {
