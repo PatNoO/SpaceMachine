@@ -7,6 +7,8 @@
     tools:context=".StatusDispFragment">
 
 
+
+
     <TextView
         android:id="@+id/tv_head_status_fsd"
         android:layout_width="wrap_content"
@@ -35,36 +37,184 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_head_status_fsd" />
 
     <TextView
-        android:id="@+id/tv_engine_hyper_drive_fsd"
-        android:layout_width="wrap_content"
+        android:id="@+id/tv_vital_systems_fsd"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hyper Drive"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="177dp" />
+        android:layout_marginTop="122dp"
+        android:fontFamily="@font/afacad_bold"
+        android:text="Vital Habitat Systems"
+        android:textAlignment="center"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_engine_info_fsd" />
 
     <TextView
-        android:id="@+id/tv_fuel_"
+        android:id="@+id/tv_engine_hyper_fsd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="30dp"
         android:text="Hyper Drive"
-        tools:layout_editor_absoluteX="109dp"
-        tools:layout_editor_absoluteY="177dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_engine_info_fsd" />
 
     <TextView
-        android:id="@+id/tv_engine_hyper_drive_fsd"
+        android:id="@+id/tv_fuel_fsd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hyper Drive"
-        tools:layout_editor_absoluteX="212dp"
-        tools:layout_editor_absoluteY="177dp" />
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="30dp"
+        android:text="Fuel"
+        app:layout_constraintStart_toEndOf="@+id/tv_engine_hyper_fsd"
+        app:layout_constraintTop_toBottomOf="@+id/tv_engine_info_fsd" />
 
     <TextView
-        android:id="@+id/tv_engine_hyper_drive_fsd"
+        android:id="@+id/tv_temp_fsd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hyper Drive"
-        tools:layout_editor_absoluteX="322dp"
-        tools:layout_editor_absoluteY="168dp" />
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="30dp"
+        android:text="Temperature"
+        app:layout_constraintStart_toEndOf="@+id/tv_fuel_fsd"
+        app:layout_constraintTop_toBottomOf="@+id/tv_engine_info_fsd" />
 
+    <TextView
+        android:id="@+id/tv_warnings_fsd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="32dp"
+        android:text="WARNINGS"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_temp_fsd"
+        app:layout_constraintTop_toBottomOf="@+id/tv_engine_info_fsd" />
+
+    <TextView
+        android:id="@+id/tv_engine_hyper_stats_fsd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/tv_engine_hyper_fsd"
+        app:layout_constraintStart_toStartOf="@+id/tv_engine_hyper_fsd"
+        app:layout_constraintTop_toBottomOf="@+id/tv_engine_hyper_fsd" />
+
+    <TextView
+        android:id="@+id/tv_fuel_stats_fsd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/tv_fuel_fsd"
+        app:layout_constraintStart_toStartOf="@+id/tv_fuel_fsd"
+        app:layout_constraintTop_toBottomOf="@+id/tv_fuel_fsd" />
+
+    <TextView
+        android:id="@+id/tv_temp_stats_fsd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/tv_temp_fsd"
+        app:layout_constraintStart_toStartOf="@+id/tv_temp_fsd"
+        app:layout_constraintTop_toBottomOf="@+id/tv_temp_fsd" />
+
+    <TextView
+        android:id="@+id/tv_warnings_stats_fsd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/tv_warnings_fsd"
+        app:layout_constraintStart_toStartOf="@+id/tv_warnings_fsd"
+        app:layout_constraintTop_toBottomOf="@+id/tv_warnings_fsd" />
+    <TextView
+        android:id="@+id/tv_pressure_stats_fsd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/tv_vital_pressure_fsd"
+        app:layout_constraintHorizontal_bias="0.647"
+        app:layout_constraintStart_toStartOf="@+id/tv_vital_pressure_fsd"
+        app:layout_constraintTop_toBottomOf="@+id/tv_vital_pressure_fsd" />
+
+    <TextView
+        android:id="@+id/tv_vital_warning_stats_fsd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/tv_vital_warning_fsd"
+        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintStart_toStartOf="@+id/tv_vital_warning_fsd"
+        app:layout_constraintTop_toBottomOf="@+id/tv_vital_warning_fsd" />
+
+    <TextView
+        android:id="@+id/tv_vital_warning_fsd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:text="WARNINGS"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/tv_vital_pressure_fsd"
+        app:layout_constraintTop_toBottomOf="@+id/tv_vital_systems_fsd" />
+
+    <TextView
+        android:id="@+id/tv_vital_oxygen_stats_fsd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/tv_vital_oxygen_fsd"
+        app:layout_constraintHorizontal_bias="0.533"
+        app:layout_constraintStart_toStartOf="@+id/tv_vital_oxygen_fsd"
+        app:layout_constraintTop_toBottomOf="@+id/tv_vital_oxygen_fsd" />
+
+    <TextView
+        android:id="@+id/tv_vital_oxygen_fsd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:text="oxygen lvl"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_vital_systems_fsd" />
+
+    <TextView
+        android:id="@+id/tv_vital_temp_stats_fsd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="@+id/tv_vital_temp_fsd"
+        app:layout_constraintStart_toStartOf="@+id/tv_vital_temp_fsd"
+        app:layout_constraintTop_toBottomOf="@+id/tv_vital_temp_fsd" />
+
+    <TextView
+        android:id="@+id/tv_vital_temp_fsd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:text="Temperature"
+        app:layout_constraintStart_toEndOf="@+id/tv_vital_oxygen_fsd"
+        app:layout_constraintTop_toBottomOf="@+id/tv_vital_systems_fsd" />
+
+    <TextView
+        android:id="@+id/tv_vital_pressure_fsd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:text="Pressure"
+        app:layout_constraintStart_toEndOf="@+id/tv_vital_temp_fsd"
+        app:layout_constraintTop_toBottomOf="@+id/tv_vital_systems_fsd" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
