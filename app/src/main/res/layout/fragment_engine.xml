@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EngineFragment">
+    tools:context=".Fragments.EngineFragment">
 
 
     <TextView
-        android:id="@+id/tv_head_engine_fe"
+        android:id="@+id/tv_head_energy_fec"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="122dp"
@@ -27,7 +27,7 @@
         android:layout_marginEnd="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_head_engine_fe" >
+        app:layout_constraintTop_toBottomOf="@+id/tv_head_energy_fec" >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -35,24 +35,26 @@
             >
 
             <TextView
-                android:id="@+id/tv_hyper_drive_fe"
+                android:id="@+id/tv_hyper_dri_fe"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="Hyper Drive On/Off"
+                android:layout_marginTop="22dp"
+                android:text="Hyper Drive"
                 android:textAlignment="center"
+                android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_fuel_lvl_fe"
-                android:layout_width="135dp"
+                android:id="@+id/tv_fuel_fe"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="22dp"
                 android:text="Fuel Level"
                 android:textAlignment="center"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_hyper_on_off_fe" />
 
@@ -63,9 +65,9 @@
                 android:layout_marginTop="8dp"
                 android:text="ON/OFF"
                 android:textAlignment="center"
-                app:layout_constraintEnd_toEndOf="@+id/tv_hyper_drive_fe"
-                app:layout_constraintStart_toStartOf="@+id/tv_hyper_drive_fe"
-                app:layout_constraintTop_toBottomOf="@+id/tv_hyper_drive_fe" />
+                app:layout_constraintEnd_toEndOf="@+id/tv_hyper_dri_fe"
+                app:layout_constraintStart_toStartOf="@+id/tv_hyper_dri_fe"
+                app:layout_constraintTop_toBottomOf="@+id/tv_hyper_dri_fe" />
 
             <TextView
                 android:id="@+id/tv_fuel_info_fe"
@@ -73,49 +75,56 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Fuel Info"
-                app:layout_constraintEnd_toEndOf="@+id/tv_fuel_lvl_fe"
-                app:layout_constraintStart_toStartOf="@+id/tv_fuel_lvl_fe"
-                app:layout_constraintTop_toBottomOf="@+id/tv_fuel_lvl_fe" />
+                app:layout_constraintEnd_toEndOf="@+id/tv_fuel_fe"
+                app:layout_constraintStart_toStartOf="@+id/tv_fuel_fe"
+                app:layout_constraintTop_toBottomOf="@+id/tv_fuel_fe" />
 
             <TextView
                 android:id="@+id/tv_temp_fe"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginEnd="22dp"
                 android:text="Temperature"
+                android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_fuel_info_fe" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_hyper_on_off_fe" />
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/tv_temp_info_fe"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Temp info"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/tv_temp_fe"
+                app:layout_constraintStart_toStartOf="@+id/tv_temp_fe"
                 app:layout_constraintTop_toBottomOf="@+id/tv_temp_fe" />
 
             <TextView
                 android:id="@+id/tv_warning_fe"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="22dp"
+                android:layout_marginBottom="8dp"
                 android:text="Warnings"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/tv_warning_info_fe"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView5" />
+                app:layout_constraintStart_toStartOf="parent" />
 
             <TextView
                 android:id="@+id/tv_warning_info_fe"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginBottom="52dp"
                 android:text="Warnings info"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_warning_fe" />
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/tv_warning_fe"
+                app:layout_constraintStart_toStartOf="@+id/tv_warning_fe" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="left" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
