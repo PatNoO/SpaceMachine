@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Fragments.EneryCoreFragment">
+    tools:context=".Fragments.EnergyCoreFragment">
 
     <TextView
         android:id="@+id/tv_head_energy_fec"
@@ -33,6 +33,18 @@
             android:layout_height="match_parent"
             >
 
+            <Button
+                android:id="@+id/btn_open_solar_fec"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_marginBottom="8dp"
+                android:text="Solar Open"
+                app:layout_constraintBottom_toTopOf="@+id/tv_warning_info_fvh"
+                app:layout_constraintEnd_toStartOf="@+id/tv_warning_info_fvh"
+                app:layout_constraintHorizontal_bias="0.011"
+                app:layout_constraintStart_toStartOf="parent" />
+
             <TextView
                 android:id="@+id/tv_solar_pan_fec"
                 android:layout_width="wrap_content"
@@ -46,7 +58,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_battery_fe"
+                android:id="@+id/tv_battery_fec"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="22dp"
@@ -58,7 +70,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/tv_hyper_on_off_fe" />
 
             <TextView
-                android:id="@+id/tv_hyper_on_off_fe"
+                android:id="@+id/tv_solar_info_fec"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -69,14 +81,14 @@
                 app:layout_constraintTop_toBottomOf="@+id/tv_solar_pan_fec" />
 
             <TextView
-                android:id="@+id/tv_fuel_info_fe"
+                android:id="@+id/tv_battery_info_fec"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:text="Fuel Info"
-                app:layout_constraintEnd_toEndOf="@+id/tv_battery_fe"
-                app:layout_constraintStart_toStartOf="@+id/tv_battery_fe"
-                app:layout_constraintTop_toBottomOf="@+id/tv_battery_fe" />
+                app:layout_constraintEnd_toEndOf="@+id/tv_battery_fec"
+                app:layout_constraintStart_toStartOf="@+id/tv_battery_fec"
+                app:layout_constraintTop_toBottomOf="@+id/tv_battery_fec" />
 
             <TextView
                 android:id="@+id/tv_energy_resorces_fec"
@@ -103,11 +115,11 @@
                 android:id="@+id/tv_warning_info_fvh"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="52dp"
+                android:layout_marginBottom="140dp"
                 android:text="Warnings info"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/btn_open_solar_fec"
-                app:layout_constraintStart_toStartOf="@+id/btn_open_solar_fec" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <androidx.constraintlayout.widget.Barrier
                 android:layout_width="wrap_content"
@@ -115,14 +127,16 @@
                 app:barrierDirection="left" />
 
             <Button
-                android:id="@+id/btn_open_solar_fec"
+                android:id="@+id/btn_close_solar_fec"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="11dp"
-                android:text="Solar Panel"
+                android:layout_marginEnd="6dp"
+                android:layout_marginBottom="8dp"
+                android:text="Solar Close"
                 app:layout_constraintBottom_toTopOf="@+id/tv_warning_info_fvh"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintHorizontal_bias="0.845"
+                app:layout_constraintStart_toEndOf="@+id/tv_warning_info_fvh" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

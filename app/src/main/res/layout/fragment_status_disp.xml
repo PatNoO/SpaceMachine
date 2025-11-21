@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="122dp"
         android:fontFamily="@font/afacad_bold"
         android:text="Status Display"
         android:textSize="32sp"
@@ -71,6 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="engine info"
+            android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="@+id/tv_engine_fsd"
             app:layout_constraintStart_toStartOf="@+id/tv_engine_fsd"
             app:layout_constraintTop_toBottomOf="@+id/tv_engine_fsd" />
@@ -81,6 +82,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="vital info"
+            android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="@+id/tv_vital_fsd"
             app:layout_constraintStart_toStartOf="@+id/tv_vital_fsd"
             app:layout_constraintTop_toBottomOf="@+id/tv_vital_fsd" />
@@ -91,6 +93,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:text="Energy Info"
+            android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="@+id/tv_energy_fsd"
             app:layout_constraintStart_toStartOf="@+id/tv_energy_fsd"
             app:layout_constraintTop_toBottomOf="@+id/tv_energy_fsd" />

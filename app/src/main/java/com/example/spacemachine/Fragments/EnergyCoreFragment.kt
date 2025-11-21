@@ -1,60 +1,56 @@
 package com.example.spacemachine.Fragments
 
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.spacemachine.Fragments.ComandCentralFragment.ComandCentralFragmentListener
 import com.example.spacemachine.R
+import com.example.spacemachine.databinding.FragmentEnergyCoreBinding
+import com.example.spacemachine.databinding.FragmentEngineBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class EnergyCoreFragment : Fragment(R.layout.fragment_energy_core,) {
 
-/**
- * A simple [Fragment] subclass.
- * Use the [EneryCoreFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class EneryCoreFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    interface EnergyCoreFragmentListener {
+        fun commandSolarPanel (openSolar : Boolean)
+    }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    var owner : EnergyCoreFragmentListener? = null
+
+    private var bbinding : FragmentEnergyCoreBinding? = null
+
+    private val binding get() = bbinding!!
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+
+        try {
+            owner = context as EnergyCoreFragmentListener
+            Log.i("!!!", "Listener implemented")
+        } catch (e: Exception){
+            Log.e("!!!", "Listener not implemented")
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_energy_core, container, false)
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        bbinding = FragmentEnergyCoreBinding.bind(view)
+
+        binding.btnOpenSolarFec.setOnClickListener {
+            owner?.commandSolarPanel(openSolar = true)
+            binding.tvSolarInfoFec.text = "ON"
+
+        }
+        binding.btnCloseSolarFec.setOnClickListener {
+            owner?.commandSolarPanel(openSolar = false)
+            binding.tvSolarInfoFec.text = "OFF"
+        }
+
+
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment EneryCoreFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            EneryCoreFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
 }
