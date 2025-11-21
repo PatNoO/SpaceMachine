@@ -8,12 +8,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.PagerAdapter
 import androidx.viewpager2.widget.ViewPager2
 import com.example.spacemachine.Fragments.ComandCentralFragment
+import com.example.spacemachine.Fragments.EnergyCoreFragment
+import com.example.spacemachine.Fragments.EngineFragment
 import com.example.spacemachine.Fragments.StatusDispFragment
+import com.example.spacemachine.Fragments.VitalHabitatFragment
 import com.example.spacemachine.databinding.ActivityMainBinding
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), ComandCentralFragment.ComandCentralFragmentListener, EnergyCoreFragment.EnergyCoreFragmentListener, VitalHabitatFragment.VitalHabitatFragmentListener {
 
     private lateinit var viewPagerMa: ViewPager2
 
@@ -29,15 +32,8 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(binding.root)
 
+        showComandCentralFragment()
 
-        binding.btnStatusDispAm.setOnClickListener {
-            removeComandCentralFragment()
-            showStatusDisplayFragment()
-        }
-        binding.btnComandCentAm.setOnClickListener {
-            removeStatusDisplayFragment()
-            showComandCentralFragment()
-        }
 
         val adapterMa = FragPagerAdapter (this)
 
@@ -47,10 +43,11 @@ class MainActivity : AppCompatActivity() {
 
         TabLayoutMediator(binding.tabNavigationAm,binding.vpPager) {tab, position ->
             tab.text = when(position){
-                0 -> "Drive System Display"
-                1 -> "Vital Habitat Display"
-                2 -> "Energy Core Display"
-                else -> ""
+                0 -> "Status Display"
+                1 -> "Drive System Display"
+                2 -> "Vital Habitat Display"
+                3 -> "Energy Core Display"
+                else -> "Vital Habitat Display"
             }
         }.attach()
 
@@ -63,30 +60,55 @@ class MainActivity : AppCompatActivity() {
         transaction.commit()
     }
 
-    fun removeComandCentralFragment () {
-        val removeComandCentralFragment = supportFragmentManager.findFragmentByTag("fragment_comand_central")
 
-        if (removeComandCentralFragment != null) {
-            supportFragmentManager.beginTransaction()
-                .remove(removeComandCentralFragment)
-                .commit()
-        }
+    override fun commandRefillFuel(fuel: Boolean) {
+        val fragEngine = supportFragmentManager.findFragmentByTag("f1") as EngineFragment?
+        val fragStatusDisp = supportFragmentManager.findFragmentByTag("f0") as StatusDispFragment?
+
+        fragEngine?.refillFuel(fuel)
+        fragStatusDisp?.refillFuel(fuel)
     }
 
-    fun showStatusDisplayFragment () {
-        val showStatusDisplayFragment = StatusDispFragment()
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.main, showStatusDisplayFragment, "fragment_status_disp")
-        transaction.commit()
+    override fun commandHyperDrive (turnOnOff : Boolean) {
+        val fragEngine = supportFragmentManager.findFragmentByTag("f1") as EngineFragment?
+        val fragStatusDisp = supportFragmentManager.findFragmentByTag("f0") as StatusDispFragment?
+
+        fragEngine?.hyperDriveOnOff(turnOnOff)
+        fragStatusDisp?.hyperDriveOnOff(turnOnOff)
     }
 
-    fun removeStatusDisplayFragment () {
-        val removeStatusDisplayFragment = supportFragmentManager.findFragmentByTag("fragment_status_disp")
+    override fun commandSolarPanel(openSolar: Boolean) {
+        val fragStatusDisp = supportFragmentManager.findFragmentByTag("f0") as StatusDispFragment?
 
-        if (removeStatusDisplayFragment != null) {
-            supportFragmentManager.beginTransaction()
-                .remove(removeStatusDisplayFragment)
-                .commit()
-        }
+        fragStatusDisp?.solarPanelOnOff(openSolar)
+    }
+
+    override fun simulateEmergency(emergency: Boolean) {
+        val fragEngine = supportFragmentManager.findFragmentByTag("f1") as EngineFragment?
+        val fragStatusDisp = supportFragmentManager.findFragmentByTag("f0") as StatusDispFragment?
+        val fragEnergy = supportFragmentManager.findFragmentByTag("f3") as EnergyCoreFragment?
+        val fragVital = supportFragmentManager.findFragmentByTag("f2") as VitalHabitatFragment?
+
+        fragStatusDisp?.warningText(emergency)
+        fragEnergy?.warningText(emergency)
+        fragEngine?.warningText(emergency)
+        fragVital?.warningText(emergency)
+    }
+
+    override fun commandPressure(pressure: Boolean) {
+        val fragVital = supportFragmentManager.findFragmentByTag("f2") as VitalHabitatFragment?
+        fragVital?.handlePressure(pressure)
+    }
+
+    override fun commandWarnings(warningsOff: Boolean) {
+        val fragEngine = supportFragmentManager.findFragmentByTag("f1") as EngineFragment?
+        val fragStatusDisp = supportFragmentManager.findFragmentByTag("f0") as StatusDispFragment?
+        val fragEnergy = supportFragmentManager.findFragmentByTag("f3") as EnergyCoreFragment?
+        val fragVital = supportFragmentManager.findFragmentByTag("f2") as VitalHabitatFragment?
+
+        fragStatusDisp?.closeWarning(warningsOff)
+        fragEnergy?.closeWarning(warningsOff)
+        fragEngine?.closeWarning(warningsOff)
+        fragVital?.closeWarning(warningsOff)
     }
 }
