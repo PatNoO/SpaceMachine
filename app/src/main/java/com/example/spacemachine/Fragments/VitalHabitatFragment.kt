@@ -23,9 +23,9 @@ class VitalHabitatFragment : Fragment(R.layout.fragment_vital_habitat,) {
 
     var owner: VitalHabitatFragmentListener? = null
 
-    private var bbinding : FragmentVitalHabitatBinding? = null
+    private lateinit var binding : FragmentVitalHabitatBinding
 
-    private val binding get() = bbinding!!
+
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -39,9 +39,21 @@ class VitalHabitatFragment : Fragment(R.layout.fragment_vital_habitat,) {
         }
     }
 
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+       binding = FragmentVitalHabitatBinding.inflate(inflater, container, false)
+
+        return binding.root
+
+
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        bbinding = FragmentVitalHabitatBinding.bind(view)
+
 
         binding.btnSimulateEmerFvh.setOnClickListener {
             owner?.simulateEmergency(emergency = true)

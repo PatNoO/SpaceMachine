@@ -9,6 +9,8 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import com.example.spacemachine.R
 import com.example.spacemachine.databinding.FragmentComandCentralBinding
+import java.util.Locale
+import java.util.Locale.getDefault
 
 class ComandCentralFragment : Fragment(R.layout.fragment_comand_central) {
 
@@ -111,7 +113,7 @@ class ComandCentralFragment : Fragment(R.layout.fragment_comand_central) {
     }
 
     fun clickCommandEngine (){
-            val captainCommand = binding.etCommandFcc.text.toString()
+            val captainCommand = binding.etCommandFcc.text.toString().uppercase(getDefault())
             val sendFuelCommand = if (captainCommand == "REFILL"){
                 true
             } else {
