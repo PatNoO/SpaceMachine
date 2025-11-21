@@ -11,24 +11,23 @@ import com.example.spacemachine.R
 import com.example.spacemachine.databinding.FragmentEngineBinding
 import com.example.spacemachine.databinding.FragmentStatusDispBinding
 
-class StatusDispFragment : Fragment() {
+class StatusDispFragment : Fragment(R.layout.fragment_status_disp) {
 
-    private var bbinding : FragmentStatusDispBinding? = null
+    private lateinit var binding : FragmentStatusDispBinding
 
-    private val binding get() = bbinding!!
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_status_disp, container, false)
+    ): View {
+        binding = FragmentStatusDispBinding.inflate(inflater,container,false)
+        return binding.root
 
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        bbinding = FragmentStatusDispBinding.bind(view)
 
     }
 
@@ -76,4 +75,6 @@ class StatusDispFragment : Fragment() {
             binding.tvVitalInfoFsd.text = "WARNING-- Oxygen Level is to low!! --WARNING"
         }
     }
+
+
 }

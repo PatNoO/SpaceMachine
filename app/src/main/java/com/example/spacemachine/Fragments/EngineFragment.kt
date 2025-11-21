@@ -12,23 +12,22 @@ import com.example.spacemachine.databinding.FragmentComandCentralBinding
 import com.example.spacemachine.databinding.FragmentEngineBinding
 
 
-class EngineFragment : Fragment() {
+class EngineFragment : Fragment(R.layout.fragment_engine) {
 
-    private var bbinding : FragmentEngineBinding? = null
+    private lateinit var binding : FragmentEngineBinding
 
-    private val binding get() = bbinding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_engine, container, false)
+    ): View {
+        binding = FragmentEngineBinding.inflate(inflater,container,false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        bbinding = FragmentEngineBinding.bind(view)
+
 
 
     }
@@ -64,5 +63,7 @@ class EngineFragment : Fragment() {
             binding.tvWarningInfoFe.text = "WARNING-- Oxygen Level is to low!! --WARNING"
         }
     }
+
+
 
 }

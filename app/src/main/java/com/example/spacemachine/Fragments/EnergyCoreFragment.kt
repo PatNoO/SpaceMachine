@@ -20,9 +20,8 @@ class EnergyCoreFragment : Fragment(R.layout.fragment_energy_core,) {
 
     var owner : EnergyCoreFragmentListener? = null
 
-    private var bbinding : FragmentEnergyCoreBinding? = null
+    private lateinit var binding : FragmentEnergyCoreBinding
 
-    private val binding get() = bbinding!!
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -35,10 +34,19 @@ class EnergyCoreFragment : Fragment(R.layout.fragment_energy_core,) {
         }
     }
 
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding = FragmentEnergyCoreBinding.inflate(inflater,container,false)
+        return binding.root
+    }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        bbinding = FragmentEnergyCoreBinding.bind(view)
+
 
         binding.btnOpenSolarFec.setOnClickListener {
             owner?.commandSolarPanel(openSolar = true)
@@ -66,6 +74,12 @@ class EnergyCoreFragment : Fragment(R.layout.fragment_energy_core,) {
         } else {
             binding.tvWarningInfoFec.text = "WARNING-- Oxygen Level is to low!! --WARNING"
         }
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+
+        owner = null
     }
 
 }

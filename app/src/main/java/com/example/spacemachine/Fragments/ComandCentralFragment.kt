@@ -3,8 +3,10 @@ package com.example.spacemachine.Fragments
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
 import android.view.View
+import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import com.example.spacemachine.R
@@ -25,8 +27,8 @@ class ComandCentralFragment : Fragment(R.layout.fragment_comand_central) {
 
     var owner: ComandCentralFragmentListener? = null
 
-    private var bbinding : FragmentComandCentralBinding? = null
-    private val binding get() = bbinding!!
+    private lateinit var binding : FragmentComandCentralBinding
+
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -40,10 +42,17 @@ class ComandCentralFragment : Fragment(R.layout.fragment_comand_central) {
         }
     }
 
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        binding = FragmentComandCentralBinding.inflate(inflater, container,false)
+        return binding.root
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        bbinding = FragmentComandCentralBinding.bind(view)
-
         spinner()
 
     }
@@ -141,9 +150,9 @@ class ComandCentralFragment : Fragment(R.layout.fragment_comand_central) {
         }
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        bbinding = null
-    }
+    override fun onDetach() {
+        super.onDetach()
 
+        owner = null
+    }
 }
