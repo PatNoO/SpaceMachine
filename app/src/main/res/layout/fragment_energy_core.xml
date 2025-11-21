@@ -40,8 +40,8 @@
                 android:layout_marginStart="6dp"
                 android:layout_marginBottom="8dp"
                 android:text="Solar Open"
-                app:layout_constraintBottom_toTopOf="@+id/tv_warning_info_fvh"
-                app:layout_constraintEnd_toStartOf="@+id/tv_warning_info_fvh"
+                app:layout_constraintBottom_toTopOf="@+id/tv_warning_info_fec"
+                app:layout_constraintEnd_toStartOf="@+id/tv_warning_info_fec"
                 app:layout_constraintHorizontal_bias="0.011"
                 app:layout_constraintStart_toStartOf="parent" />
 
@@ -91,12 +91,12 @@
                 app:layout_constraintTop_toBottomOf="@+id/tv_battery_fec" />
 
             <TextView
-                android:id="@+id/tv_energy_resorces_fec"
+                android:id="@+id/tv_power_usage_fec"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="22dp"
                 android:layout_marginEnd="22dp"
-                android:text="Temperature"
+                android:text="PowerUsge"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_hyper_on_off_fe" />
@@ -106,13 +106,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Temp info"
-                app:layout_constraintEnd_toEndOf="@+id/tv_energy_resorces_fec"
-                app:layout_constraintStart_toStartOf="@+id/tv_energy_resorces_fec"
-                app:layout_constraintTop_toBottomOf="@+id/tv_energy_resorces_fec" />
+                android:text="Power Info"
+                app:layout_constraintEnd_toEndOf="@+id/tv_power_usage_fec"
+                app:layout_constraintStart_toStartOf="@+id/tv_power_usage_fec"
+                app:layout_constraintTop_toBottomOf="@+id/tv_power_usage_fec" />
 
             <TextView
-                android:id="@+id/tv_warning_info_fvh"
+                android:id="@+id/tv_warning_info_fec"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="140dp"
@@ -133,10 +133,10 @@
                 android:layout_marginEnd="6dp"
                 android:layout_marginBottom="8dp"
                 android:text="Solar Close"
-                app:layout_constraintBottom_toTopOf="@+id/tv_warning_info_fvh"
+                app:layout_constraintBottom_toTopOf="@+id/tv_warning_info_fec"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.845"
-                app:layout_constraintStart_toEndOf="@+id/tv_warning_info_fvh" />
+                app:layout_constraintStart_toEndOf="@+id/tv_warning_info_fec" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -11,11 +11,12 @@ import com.example.spacemachine.Fragments.ComandCentralFragment
 import com.example.spacemachine.Fragments.EnergyCoreFragment
 import com.example.spacemachine.Fragments.EngineFragment
 import com.example.spacemachine.Fragments.StatusDispFragment
+import com.example.spacemachine.Fragments.VitalHabitatFragment
 import com.example.spacemachine.databinding.ActivityMainBinding
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
-class MainActivity : AppCompatActivity(), ComandCentralFragment.ComandCentralFragmentListener, EnergyCoreFragment.EnergyCoreFragmentListener {
+class MainActivity : AppCompatActivity(), ComandCentralFragment.ComandCentralFragmentListener, EnergyCoreFragment.EnergyCoreFragmentListener, VitalHabitatFragment.VitalHabitatFragmentListener {
 
     private lateinit var viewPagerMa: ViewPager2
 
@@ -80,5 +81,34 @@ class MainActivity : AppCompatActivity(), ComandCentralFragment.ComandCentralFra
         val fragStatusDisp = supportFragmentManager.findFragmentByTag("f0") as StatusDispFragment?
 
         fragStatusDisp?.solarPanelOnOff(openSolar)
+    }
+
+    override fun simulateEmergency(emergency: Boolean) {
+        val fragEngine = supportFragmentManager.findFragmentByTag("f1") as EngineFragment?
+        val fragStatusDisp = supportFragmentManager.findFragmentByTag("f0") as StatusDispFragment?
+        val fragEnergy = supportFragmentManager.findFragmentByTag("f3") as EnergyCoreFragment?
+        val fragVital = supportFragmentManager.findFragmentByTag("f2") as VitalHabitatFragment?
+
+        fragStatusDisp?.warningText(emergency)
+        fragEnergy?.warningText(emergency)
+        fragEngine?.warningText(emergency)
+        fragVital?.warningText(emergency)
+    }
+
+    override fun commandPressure(pressure: Boolean) {
+        val fragVital = supportFragmentManager.findFragmentByTag("f2") as VitalHabitatFragment?
+        fragVital?.handlePressure(pressure)
+    }
+
+    override fun commandWarnings(warningsOff: Boolean) {
+        val fragEngine = supportFragmentManager.findFragmentByTag("f1") as EngineFragment?
+        val fragStatusDisp = supportFragmentManager.findFragmentByTag("f0") as StatusDispFragment?
+        val fragEnergy = supportFragmentManager.findFragmentByTag("f3") as EnergyCoreFragment?
+        val fragVital = supportFragmentManager.findFragmentByTag("f2") as VitalHabitatFragment?
+
+        fragStatusDisp?.closeWarning(warningsOff)
+        fragEnergy?.closeWarning(warningsOff)
+        fragEngine?.closeWarning(warningsOff)
+        fragVital?.closeWarning(warningsOff)
     }
 }

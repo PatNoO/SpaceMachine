@@ -15,6 +15,10 @@ class ComandCentralFragment : Fragment(R.layout.fragment_comand_central) {
     interface ComandCentralFragmentListener {
         fun commandRefillFuel (fuel: Boolean)
         fun commandHyperDrive(turnOnOff : Boolean)
+
+        fun commandPressure (pressure : Boolean)
+
+        fun commandWarnings (warningsOff : Boolean)
     }
 
     var owner: ComandCentralFragmentListener? = null
@@ -77,16 +81,36 @@ class ComandCentralFragment : Fragment(R.layout.fragment_comand_central) {
         when (position){
             0 -> {
                 binding.btnCommandFcc.setOnClickListener {
-                    clickCommandButton()
+                    clickCommandEngine()
+                    clickCloseWarnings()
                 }
             }
-            1 -> ""
-            2 -> ""
+            1 -> {
+                binding.btnCommandFcc.setOnClickListener {
+                    clickCommandVital()
+                    clickCloseWarnings()
+                }
+            }
+            2 -> {
+                binding.btnCommandFcc.setOnClickListener {
+                    clickCloseWarnings()
+                }
+            }
 
         }
     }
 
-    fun clickCommandButton (){
+    fun clickCommandVital () {
+        val captainCommand = binding.etCommandFcc.text.toString()
+         if (captainCommand == "FIX PRESSURE") {
+            owner?.commandPressure(true)
+        } else {
+            return
+        }
+
+    }
+
+    fun clickCommandEngine (){
             val captainCommand = binding.etCommandFcc.text.toString()
             val sendFuelCommand = if (captainCommand == "REFILL"){
                 true
@@ -104,6 +128,15 @@ class ComandCentralFragment : Fragment(R.layout.fragment_comand_central) {
         }
         owner?.commandHyperDrive(sendHyperDCommand)
 
+    }
+
+    fun clickCloseWarnings () {
+        val captainCommand = binding.etCommandFcc.text.toString()
+        if (captainCommand == "OVERRIDE WARNINGS") {
+            owner?.commandWarnings(true)
+        } else {
+            return
+        }
     }
 
     override fun onDestroy() {

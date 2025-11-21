@@ -53,4 +53,19 @@ class EnergyCoreFragment : Fragment(R.layout.fragment_energy_core,) {
 
     }
 
+    fun warningText (warning : Boolean) {
+        if (warning){
+            binding.tvWarningInfoFec.text = "WARNING-- Oxygen Level is to low!! --WARNING"
+        } else {
+            binding.tvWarningInfoFec.text = " Status OK "
+        }
+    }
+    fun closeWarning (warningOff : Boolean) {
+        if (warningOff){
+            binding.tvWarningInfoFec.text = " Status OK "
+        } else {
+            binding.tvWarningInfoFec.text = "WARNING-- Oxygen Level is to low!! --WARNING"
+        }
+    }
+
 }

@@ -36,8 +36,6 @@ class EngineFragment : Fragment() {
     fun refillFuel (fuel: Boolean) {
         if (fuel){
             binding.tvFuelInfoFe.text = "100%"
-        } else {
-            Toast.makeText(requireContext(), "Ingen bensin", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -46,6 +44,24 @@ class EngineFragment : Fragment() {
             binding.tvHyperOnOffFe.text = "ON"
         }else {
             binding.tvHyperOnOffFe.text = "OFF"
+            binding.tvFuelInfoFe.text = "77%"
+        }
+    }
+
+    fun warningText (warning : Boolean) {
+        if (warning){
+            binding.tvWarningInfoFe.text = "WARNING-- Oxygen Level is to low!! --WARNING"
+        } else {
+            binding.tvWarningInfoFe.text = " Status OK "
+        }
+
+    }
+
+    fun closeWarning (warningOff : Boolean) {
+        if (warningOff){
+            binding.tvWarningInfoFe.text = " Status OK "
+        } else {
+            binding.tvWarningInfoFe.text = "WARNING-- Oxygen Level is to low!! --WARNING"
         }
     }
 

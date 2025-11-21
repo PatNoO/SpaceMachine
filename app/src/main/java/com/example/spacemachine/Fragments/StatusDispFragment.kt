@@ -35,8 +35,6 @@ class StatusDispFragment : Fragment() {
     fun refillFuel (fuel: Boolean) {
         if (fuel){
             binding.tvEngineInfoFsd.text = "Fuel level is at 100%"
-        } else {
-            Toast.makeText(requireContext(), "Ingen bensin", Toast.LENGTH_SHORT).show()
         }
     }
     fun hyperDriveOnOff (turnOnOff : Boolean) {
@@ -53,6 +51,29 @@ class StatusDispFragment : Fragment() {
         } else {
             binding.tvEnergyInfoFsd.text = "Solar Panel Closed"
 
+        }
+    }
+    fun warningText (warning : Boolean) {
+        if (warning){
+            binding.tvEnergyInfoFsd.text = "WARNING-- Oxygen Level is to low!! --WARNING"
+            binding.tvEngineInfoFsd.text = "WARNING-- Oxygen Level is to low!! --WARNING"
+            binding.tvVitalInfoFsd.text = "WARNING-- Oxygen Level is to low!! --WARNING"
+        } else {
+            binding.tvEnergyInfoFsd.text = "Status ok"
+            binding.tvEngineInfoFsd.text = "Status ok"
+            binding.tvVitalInfoFsd.text = "Status ok"
+        }
+
+    }
+    fun closeWarning (warningOff : Boolean) {
+        if (warningOff){
+            binding.tvEnergyInfoFsd.text = "Status ok"
+            binding.tvEngineInfoFsd.text = "Status ok"
+            binding.tvVitalInfoFsd.text = "Status ok"
+        } else {
+            binding.tvEnergyInfoFsd.text = "WARNING-- Oxygen Level is to low!! --WARNING"
+            binding.tvEngineInfoFsd.text = "WARNING-- Oxygen Level is to low!! --WARNING"
+            binding.tvVitalInfoFsd.text = "WARNING-- Oxygen Level is to low!! --WARNING"
         }
     }
 }
